@@ -31,7 +31,7 @@ public class Searching_In_Array {
         return -1;
     }
 
-    public static int BinarSearch(int[] arr , int target){
+    public static int BinarySearch(int[] arr , int target){
         Arrays.sort(arr);
         int left = 0;
         int right = arr.length-1;
