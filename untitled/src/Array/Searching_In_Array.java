@@ -174,8 +174,8 @@ public class Searching_In_Array {
 
         // BinarySearch
         // Mandatory condition : Array must be sorted;
-
-        System.out.println(BinarSearch(arr,8));
+        Arrays.sort(arr);
+        System.out.println(BinarySearch(arr,8));
         // for sorting the array in the array n log n and binary search is log n
 
         // Occurrence(Binary) // uses for search space
