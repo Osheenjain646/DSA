@@ -63,7 +63,7 @@ public class Searching_In_Array {
                 right=mid-1;  // search on the left side for the first occurrence
             }
             else if (arr[mid]<target){
-                left=-mid+1;
+                left=mid+1;
             }
             else {
                 right=mid-1;
