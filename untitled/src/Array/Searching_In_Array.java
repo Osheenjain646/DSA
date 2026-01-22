@@ -73,7 +73,6 @@ public class Searching_In_Array {
     }
 
     public static int LastOccurrenceBinary(int[] arr, int target){
-        Arrays.sort(arr);
         int left =0;
         int right = arr.length-1;
         int ans = -1;
