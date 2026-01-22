@@ -60,7 +60,7 @@ public class Searching_In_Array {
             int mid = left+(right-left)/2;
             if (arr[mid]==target){
                 ans=mid;
-                right=mid-1;  // search in the left side for the first occurrence
+                right=mid-1;  // search on the left side for the first occurrence
             }
             else if (arr[mid]<target){
                 left=-mid+1;
