@@ -20,6 +20,72 @@ public class Prefix_Sum {
         return prefix[right]-prefix[left-1];  // otherwise subtract the prefix sum before the left from the right.
     }
 
+    public static int subarraySum(int[] nums , int k){
+        // first we create a hashmap to store the sum and frequency
+        HashMap<Integer , Integer> map = new HashMap<>();
+        map.put(0,1);   // base case handling , VERY IMPORTANT:- subarray starting from index 0
+
+        int sum = 0;
+        int count = 0;
+
+        for (int num : nums){
+            sum+=num;   // update the prefix sum
+
+            if (map.containsKey(sum-k)){    // check if previous prefix exists or not
+                count+=map.get(sum-k);  // add count of subarray
+            }
+
+            map.put(sum , map.getOrDefault(sum,0)+1);  // store current frequency
+        }
+
+        return count;  // return total subarrays
+    }
+
+    public static int equilibriumIndex(int[] nums){
+        int total_sum=0;     // use to store the total sum then as rightSum to check with leftSum
+        for (int num : nums){
+            total_sum+=num;    // the total sum of all values
+        }
+
+        int leftSum=0;    // initial left sum
+        for (int i=0; i<nums.length; i++){
+            total_sum-=nums[i];   // total_sum becomes right sum now
+
+            if (leftSum==total_sum) {  // means the left and right sum from current index excluding them are equal or not
+                return i;  // returned current index
+            }
+
+            leftSum+=nums[i];   // update the leftSum now
+        }
+
+        return -1; // if there is no equilibrium index available
+    }
+
+    public static int longestSubArraySumK(int[] nums , int k){
+        HashMap<Integer , Integer> map = new HashMap<>();
+        //  prefix sum -> first index
+
+        int sum=0; int maxLen=0;
+
+        for (int i=0; i<nums.length; i++){
+            sum+=nums[i];    // cumulative sum
+
+            if (sum==k){
+                maxLen=i+1;      // if sum == k then maxLen = i+1 from 0 to i
+            }
+
+            if (!map.containsKey(sum)){
+                map.put(sum,i);          // to store the first occurrence of the sum with index at which it appears
+            }
+
+            if (map.containsKey(sum-k)){   // if contain the previous prefix sum
+                maxLen=Math.max(maxLen,i-map.get(sum-k));  // update the maxLen with the difference
+                // between the distance from current index and index where the prefix sum is equal to the sum-k
+            }
+        }
+        return maxLen;  // return the maxLen;
+    }
+
     static void main() {
         // It id the backbone of the subarray problems
         // When sliding window fails for the negative value
@@ -65,10 +131,46 @@ public class Prefix_Sum {
         // core idea:-   currentPrefix - previousPrefix = K
         //  => also used as currentPrefix - K = previousPrefix
         // beech ka subarray ka sum = K
+        // basically finding the subarray with sum == k
 
         // works by using the HashMap to check if the map contains the previousPrefix sum
 
         // Longest subarray with sum 0
+
+        // the number of subarray exists
+        int count=subarraySum(new int[]{1,2,3} , 3);
+        // Dry Run
+        // nums=[1,2,3] , k=3
+        // sum=1 -> sum-k=-2
+        // sum=3 -> sum-k=0  so count=1
+        // sum=6 -> sum-k=3  so count=2
+        // sum=10 -> sum-k=7 so count will not increase as 7 not exists
+
+        System.out.println(count);
+
+        // Equilibrium Index
+        // The index i in the array where leftSum == rightSum
+
+        int result = equilibriumIndex(new int[]{-7,1,5,2,-4,3,0});
+        if (result==-1){
+            System.out.println("No Equilibrium Index");
+        }else {
+            System.out.println("The Equilibrium Index is "+result);
+        }
+
+        // Longest Subarray Sum = k
+        // works with negative numbers too
+        int maxLen=longestSubArraySumK(new int[]{1,2,3,4,5,6,7,8,9,5,6,8,9,3,2,1,3,5,5,5,9} , 15);
+        System.out.println(maxLen);
+
+        // Prefix sum converts subarray problems into prefix differences,
+        // enabling linear - time solutions even in presence of negative numbers
+        // mistakes not to be make
+
+        // forget to do map.put(0,1)
+        // using the sliding window with negative values
+        // Integer OverFlow -> use long if required
+        // don't overwrite the index while storing the prefix sum
 
 
 
