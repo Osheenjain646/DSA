@@ -2,7 +2,34 @@ package LeetCode;
 
 public class Valid_Palindrome_II {
 
-    public static boolean isPalindromeBruteForce(String s){
+    public static boolean isPalindromeBrute(String str){
+        int l=0;
+        int r=str.length()-1;
+        while (l<r){
+            if (str.charAt(l)!=str.charAt(r)){
+                return  false;
+            }
+            l++;
+            r--;
+        }
+        return true;
+    }
+
+    public static boolean validPalindromeBruteForce(String s){
+        String temp ="";
+        if (isPalindromeBrute(s)){
+            return true;
+        }
+        for (int i=0; i<s.length(); i++){
+            temp = s.substring(0,i)+s.substring(i+1);
+            if (isPalindromeBrute(temp)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean validPalindromeOptimised(String s){
         int start = 0;
         int end = s.length()-1;
         while(start<end){
@@ -34,8 +61,11 @@ public class Valid_Palindrome_II {
         String s1 = ("aba");
         String s2 = ("abca");
         String s3 = ("eceec");
-        System.out.println(isPalindromeBruteForce(s1));
-        System.out.println(isPalindromeBruteForce(s2));
-        System.out.println(isPalindromeBruteForce(s3));
+        System.out.println(validPalindromeOptimised(s1));
+        System.out.println(validPalindromeOptimised(s2));
+        System.out.println(validPalindromeOptimised(s3));
+        System.out.println(validPalindromeBruteForce(s1));
+        System.out.println(validPalindromeBruteForce(s2));
+        System.out.println(validPalindromeBruteForce(s3));
     }
 }
