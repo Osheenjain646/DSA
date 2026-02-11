@@ -47,6 +47,23 @@ public class Search_Insert_Position {
         return start;
     }
 
+    public static int searchInsertOptimal(int[] nums , int target){
+        // Using the Lower Bound Technique
+        // give the position where the nums[i] >= target if present give position otherwise this is the position where the can get inserted
+        int left=0;
+        int right=nums.length;  // assigning the length as right because there is a chance that the element can be inserted only at the out of the array means at the end
+        while (left<right){
+            int mid=left+(right-left)/2;
+            if(nums[mid]>=target){
+                right=mid;
+            }
+            else {
+                left = mid+1;
+            }
+        }
+        return left;
+    }
+
     public static void main(String[] args) {
         System.out.println(searchInsertBetter(new int[]{1,3,5,6}, 5));
         System.out.println(searchInsertBetter(new int[]{1,3,5,6}, 2));
