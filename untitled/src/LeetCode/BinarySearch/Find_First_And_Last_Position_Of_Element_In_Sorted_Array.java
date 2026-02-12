@@ -3,7 +3,7 @@ package LeetCode.BinarySearch;
 public class Find_First_And_Last_Position_Of_Element_In_Sorted_Array {
 
     public static int[] searchRangeBetter(int[] nums , int target){
-
+        return new int[]{};
     }
 
     public static int[] searchRangeBruteForce(int[] nums , int target){
