@@ -1,6 +1,4 @@
-package LeetCode.TwoPointer;
-
-import java.util.Arrays;
+package LeetCode.Two_Pointer;
 
 public class Best_Time_To_Buy_And_Sell_Stock {
 
