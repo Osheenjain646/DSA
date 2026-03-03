@@ -1,7 +1,7 @@
 package LeetCode.Contest.Weekly487;
 
 import java.util.ArrayList;
-// Q2
+// Q2Assignment
 public class RideSharingSystem {
     ArrayList<Integer> Rider;
     ArrayList<Integer> Driver;
