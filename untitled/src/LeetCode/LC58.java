@@ -1,6 +1,6 @@
 package LeetCode;
 
-public class Length_Of_Last_Word {
+public class LC58 {
 
     public static int lengthOfLastWord(String s) {
         s=s.strip();
