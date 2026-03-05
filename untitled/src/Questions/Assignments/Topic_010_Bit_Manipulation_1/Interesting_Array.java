@@ -3,7 +3,7 @@ package Questions.Assignments.Topic_010_Bit_Manipulation_1;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Q2HomeWork {
+public class Interesting_Array {
 
     /*
     ###Problem Description

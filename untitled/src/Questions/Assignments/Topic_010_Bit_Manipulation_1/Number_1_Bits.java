@@ -1,6 +1,6 @@
 package Questions.Assignments.Topic_010_Bit_Manipulation_1;
 
-public class Q1HomeWork {
+public class Number_1_Bits {
 
     public static int countSetBits(int n){
         int count=0;

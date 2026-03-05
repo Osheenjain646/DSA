@@ -1,6 +1,6 @@
 package Questions.Assignments.Topic_010_Bit_Manipulation_1;
 
-public class Q2Assignment {
+public class Add_Binary_String {
     // Add Binary String
 
     public static String addBinary(String A , String B){
