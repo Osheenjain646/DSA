@@ -1,7 +1,7 @@
 package LeetCode.Contest.Weekly487;
 
 import java.util.ArrayList;
-// Q2Assignment
+// Add_Binary_String
 public class RideSharingSystem {
     ArrayList<Integer> Rider;
     ArrayList<Integer> Driver;

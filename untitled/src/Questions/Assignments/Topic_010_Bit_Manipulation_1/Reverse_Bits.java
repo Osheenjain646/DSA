@@ -1,6 +1,6 @@
 package Questions.Assignments.Topic_010_Bit_Manipulation_1;
 
-public class Q3HomeWork {
+public class Reverse_Bits {
 
     public static int reverseBitsOptimal(int n){
         int res =0;

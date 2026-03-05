@@ -1,6 +1,6 @@
 package Questions.Assignments.Topic_010_Bit_Manipulation_1;
 
-public class Q1Assignment {
+public class Single_Number {
 
     public static int singleNumber(int[] nums){
         // XOR of each number
