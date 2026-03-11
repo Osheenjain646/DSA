@@ -1,9 +1,8 @@
 package LeetCode.LinkedList;
 
-import java.awt.desktop.PreferencesEvent;
 import java.util.Scanner;
 
-public class Advanced_1 {
+public class Advanced_1_2 {
 
     public static Node CreateLinkedList(int N){
 
